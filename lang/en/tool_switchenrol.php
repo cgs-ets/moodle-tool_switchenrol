@@ -41,21 +41,21 @@ $string['invalidencoding'] = 'Invalid encoding';
 $string['invalidshortname'] = 'Invalid shortname';
 $string['missingmandatoryfields'] = 'Missing value for mandatory fields: {$a}';
 $string['nochanges'] = 'No changes';
-$string['pluginname'] = 'Switch enrol plugins';
+$string['pluginname'] = 'Switch enrol';
 $string['preview'] = 'Preview';
 $string['result'] = 'Result';
 $string['rowpreviewnum'] = 'Preview rows';
 $string['rowpreviewnum_help'] = 'Number of rows from the CSV file that will be previewed on the following page. This option is for limiting the size of the following page.';
-$string['switchenrol'] = 'Switch enrol plugins';
+$string['switchenrol'] = 'Switch enrol methods';
 $string['switchenrol_help'] = 'Courses may be uploaded via text file. The format of the file should be as follows:
 * Each line of the file contains one record
 * Each record is a series of data separated by commas (or other delimiters)
 * The first record contains a list of fieldnames defining the format of the rest of the file
 * Required fieldnames are shortname, enrolold, and enrolnew';
-$string['switchenrolspreview'] = 'Switch enrol plugins preview';
-$string['switchenrolsresult'] = 'Switch enrol plugins results';
+$string['switchenrolspreview'] = 'Switch enrol methods preview';
+$string['switchenrolsresult'] = 'Switch enrol methods results';
 $string['privacy:metadata'] = 'The Switch enrol plugin does not store any personal data.';
-$string['enrolold'] = 'Enrol plugin (old)';
-$string['enrolnew'] = 'Enrol plugin (new)';
+$string['enrolold'] = 'Enrol method (old)';
+$string['enrolnew'] = 'Enrol method (new)';
 $string['enrolmethoddoesnotexist'] = 'One of the enrolment methods does not exist in the course.';
 
