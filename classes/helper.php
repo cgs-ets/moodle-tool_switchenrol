@@ -40,19 +40,19 @@ class tool_switchenrol_helper {
     * @param stdClass $course
     * @return array
     */
-    public static function get_enrol_instances($course) {
-        $oldinstance = null;
-        $newinstance = null;
+    public static function get_enrol_methods($course) {
+        $oldmethod = null;
+        $newmethod = null;
         $instances = enrol_get_instances($course->id, false);
         foreach ($instances as $instance) {
             if ($instance->enrol == $course->enrolold) {
-                $oldinstance = $instance;
+                $oldmethod = $instance;
             }
             if ($instance->enrol == $course->enrolnew) {
-                $newinstance = $instance;
+                $newmethod = $instance;
             }
         }
-        return array($oldinstance, $newinstance);
+        return array($oldmethod, $newmethod);
     }
   
 }

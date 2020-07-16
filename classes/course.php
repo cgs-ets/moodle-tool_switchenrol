@@ -217,7 +217,7 @@ class tool_switchenrol_course {
 
         // Find the old and new enrol method instances for the course
         $course = (object) $coursedata;
-        list($oldmethod, $newmethod) = tool_switchenrol_helper::get_enrol_instances($course);
+        list($oldmethod, $newmethod) = tool_switchenrol_helper::get_enrol_methods($course);
         if (empty($oldmethod) || empty($newmethod)) {
             $this->error('enrolmethoddoesnotexist', new lang_string('enrolmethoddoesnotexist', 'tool_switchenrol'));
             return false;
@@ -255,16 +255,21 @@ class tool_switchenrol_course {
         $course = (object) $this->data;
 
         // Find the old and new enrol method instances for the course
-        list($oldinstance, $newinstance) = tool_switchenrol_helper::get_enrol_instances($course);
-        if (empty($oldinstance) || empty($newinstance)) {
+        list($oldmethod, $newmethod) = tool_switchenrol_helper::get_enrol_methods($course);
+        if (empty($oldmethod) || empty($newmethod)) {
             // One of the methods does not exist in this course... this warning should have been picked up in the preview.
             return;
         }
 
         $sql = "UPDATE {user_enrolments}
                    SET enrolid = ?
-                 WHERE enrolid = ?";
-        $params = array($newinstance->id, $oldinstance->id);
+                 WHERE enrolid = ?
+                   AND userid NOT IN (
+                       SELECT userid 
+                         FROM {user_enrolments}
+                        WHERE enrolid = ?
+                   )";
+        $params = array($newmethod->id, $oldmethod->id, $newmethod->id);
         $DB->execute($sql, $params);
         $this->status('enrolupdated', new lang_string('enrolupdated', 'tool_switchenrol'));
     }
