@@ -59,4 +59,4 @@ $string['privacy:metadata'] = 'The Switch enrol plugin does not store any person
 $string['enrolold'] = 'Enrol method (old)';
 $string['enrolnew'] = 'Enrol method (new)';
 $string['enrolmethoddoesnotexist'] = 'One of the enrolment methods does not exist in the course.';
-
+$string['enrolmethoddoesnousers'] = 'No user enrolments exist for the old enrolment method.';

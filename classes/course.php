@@ -221,7 +221,13 @@ class tool_switchenrol_course {
         if (empty($oldmethod) || empty($newmethod)) {
             $this->error('enrolmethoddoesnotexist', new lang_string('enrolmethoddoesnotexist', 'tool_switchenrol'));
             return false;
-        } 
+        }
+
+        // Check whether the old method has any enrolments.
+        if( ! $DB->record_exists('user_enrolments', array('enrolid' => $oldinstance->id))) {
+            $this->error('enrolmethoddoesnousers', new lang_string('enrolmethoddoesnousers', 'tool_switchenrol'));
+            return false;
+        }
 
         // Saving data.
         $this->data = $coursedata;
