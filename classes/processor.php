@@ -98,7 +98,7 @@ class tool_switchenrol_processor {
                 $course->proceed();
 
                 $status = $course->get_statuses();
-                if (array_key_exists('courseupdated', $status)) {
+                if (array_key_exists('enrolupdated', $status)) {
                     $updated++;
                 }
 

@@ -26,6 +26,7 @@ $string['cannotupdatefrontpage'] = 'It is forbidden to modify the front page';
 $string['coursefile'] = 'File';
 $string['coursefile_help'] = 'This file must be a CSV file.';
 $string['coursedoesnotexist'] = 'The course does not exist';
+$string['coursestotal'] = 'Courses total: {$a}';
 $string['coursesupdated'] = 'Courses updated: {$a}';
 $string['courseserrors'] = 'Courses errors: {$a}';
 $string['enrolupdated'] = 'Enrolments updated';
