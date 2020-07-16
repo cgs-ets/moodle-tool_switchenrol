@@ -224,7 +224,7 @@ class tool_switchenrol_course {
         }
 
         // Check whether the old method has any enrolments.
-        if( ! $DB->record_exists('user_enrolments', array('enrolid' => $oldinstance->id))) {
+        if( ! $DB->record_exists('user_enrolments', array('enrolid' => $oldmethod->id))) {
             $this->error('enrolmethoddoesnousers', new lang_string('enrolmethoddoesnousers', 'tool_switchenrol'));
             return false;
         }
