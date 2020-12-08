@@ -271,6 +271,31 @@ class tool_switchenrol_course {
                    )";
         $params = array($newmethod->id, $oldmethod->id, $newmethod->id);
         $DB->execute($sql, $params);
+
+
+        $sql = "UPDATE {role_assignments}
+                   SET itemid = ? ";
+
+        // If changing from database, update the role_assignments table to remove 
+        // reference to the enrol_database component so these are not deleted by the database enrol sync.
+        // If changing to database, update the role_assignments table to reference the enrol_database component
+        // so these are not deleted by the database enrol sync. 
+        if ($oldmethod->enrol = 'database') {
+            $sql .= ", component = '' ";
+        } else if ($newmethod->enrol = 'database') {
+            $sql .= ", component = 'enrol_database' ";
+        }
+
+        $sql .= "WHERE itemid = ?
+                   AND userid NOT IN (
+                       SELECT userid 
+                         FROM {user_enrolments}
+                        WHERE enrolid = ?
+                   )";
+        $params = array($newmethod->id, $oldmethod->id, $oldmethod->id);
+        $DB->execute($sql, $params);
+
+
         $this->status('enrolupdated', new lang_string('enrolupdated', 'tool_switchenrol'));
     }
    
