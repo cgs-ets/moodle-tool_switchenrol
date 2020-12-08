@@ -280,9 +280,9 @@ class tool_switchenrol_course {
         // reference to the enrol_database component so these are not deleted by the database enrol sync.
         // If changing to database, update the role_assignments table to reference the enrol_database component
         // so these are not deleted by the database enrol sync. 
-        if ($oldmethod->enrol = 'database') {
+        if ($oldmethod->enrol == 'database') {
             $sql .= ", component = '' ";
-        } else if ($newmethod->enrol = 'database') {
+        } else if ($newmethod->enrol == 'database') {
             $sql .= ", component = 'enrol_database' ";
         }
 
